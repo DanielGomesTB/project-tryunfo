@@ -1,0 +1,153 @@
+import React from 'react';
+
+class Form extends React.Component {
+//   constructor() {
+//     super();
+
+  //     this.onInputChange = this.onInputChange.bind(this);
+
+  //     this.state = {
+  //       cardName: '',
+  //       cardDescription: '',
+  //       cardAttr1: '',
+  //       cardAttr2: '',
+  //       cardAttr3: '',
+  //       cardImage: '',
+  //       cardRare: '',
+  //       cardTrunfo: false,
+  //       hasTrunfo: false,
+  //       isSaveButtonDisabled: true,
+  //     };
+  //   }
+
+  //   handleSubmit(event) {
+  //     event.preventDefault();
+  //   }
+
+  //   onSaveButtonClick({ target }) {
+  //     target.disabled = false;
+  //   }
+
+  //   onInputChange({ target }) {
+  //     console.log(target);
+  //     const { name } = target;
+  //     const value = target.type === 'checkbox' ? target.checked : target.value;
+  //     this.setState({ [name]: value });
+  //   }
+
+  //   const {
+  //     cardName,
+  //     cardDescription,
+  //     cardAttr1,
+  //     cardAttr2,
+  //     cardAttr3,
+  //     cardImage,
+  //     cardRare,
+  //     cardTrunfo,
+  //     hasTrunfo,
+  //     isSaveButtonDisabled,
+  //     onInputChange,
+  //     onSaveButtonClick,
+  //  } = this.props;
+
+  render() {
+    return (
+      <div>
+        <form onSubmit={ this.handleSubmit }>
+          <label htmlFor="name-input">
+            Nome Da Carta
+            <input
+              name="cardName"
+              onChange={ this.props.onInputChange }
+              value={ this.props.cardName }
+              type="text"
+              data-testid="name-input"
+            />
+          </label>
+          <label htmlFor="description-input">
+            Descrição Da Carta
+            <textarea
+              name="cardDescription"
+              onChange={ this.props.onInputChange }
+              value={ this.props.cardDescription }
+              data-testid="description-input"
+            />
+          </label>
+          <label htmlFor="attr1-input">
+            Primeiro Atributo Da Carta
+            <input
+              name="cardAttr1"
+              onChange={ this.props.onInputChange }
+              value={ this.props.cardAttr1 }
+              type="number"
+              data-testid="attr1-input"
+            />
+          </label>
+          <label htmlFor="attr2-input">
+            Segundo Atributo Da Carta
+            <input
+              name="cardAttr2"
+              onChange={ this.props.onInputChange }
+              value={ this.props.cardAttr2 }
+              type="number"
+              data-testid="attr2-input"
+            />
+          </label>
+          <label htmlFor="attr3-input">
+            Terceiro Atributo Da Carta
+            <input
+              name="cardAttr3"
+              onChange={ this.props.onInputChange }
+              value={ this.props.cardAttr3 }
+              type="number"
+              data-testid="attr3-input"
+            />
+          </label>
+          <label htmlFor="image-input">
+            Caminho Para Imagem da Carta
+            <input
+              name="cardImage"
+              onChange={ this.props.onInputChange }
+              value={ this.props.cardImage }
+              type="text"
+              data-testid="image-input"
+            />
+          </label>
+          <label htmlFor="rare-input">
+            Inserir Raridade da Carta
+            <select
+              name="cardRare"
+              data-testid="rare-input"
+              onChange={ this.props.onInputChange }
+              value={ this.props.cardRare }
+            >
+              <option>normal</option>
+              <option>raro</option>
+              <option>muito raro</option>
+            </select>
+          </label>
+          <label htmlFor="trunfo-input">
+            Carta é Super Trunfo?
+            <input
+              name="cardTrunfo"
+              onChange={ this.props.onInputChange }
+              checked={ this.props.cardTrunfo }
+              type="checkbox"
+              data-testid="trunfo-input"
+            />
+          </label>
+          <button
+            type="submit"
+            disabled={ this.props.isSaveButtonDisabled }
+            onClick={ this.props.onSaveButtonClick }
+            data-testid="save-button"
+          >
+            Salvar
+          </button>
+        </form>
+      </div>
+    );
+  }
+}
+
+export default Form;
