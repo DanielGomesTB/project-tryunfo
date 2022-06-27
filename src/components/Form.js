@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class Form extends React.Component {
 //   constructor() {
@@ -51,6 +52,21 @@ class Form extends React.Component {
   //  } = this.props;
 
   render() {
+    const {
+      cardName,
+      cardDescription,
+      cardAttr1,
+      cardAttr2,
+      cardAttr3,
+      cardImage,
+      cardRare,
+      cardTrunfo,
+      // hasTrunfo,
+      isSaveButtonDisabled,
+      onInputChange,
+      onSaveButtonClick,
+    } = this.props;
+
     return (
       <div>
         <form onSubmit={ this.handleSubmit }>
@@ -58,8 +74,8 @@ class Form extends React.Component {
             Nome Da Carta
             <input
               name="cardName"
-              onChange={ this.props.onInputChange }
-              value={ this.props.cardName }
+              onChange={ onInputChange }
+              value={ cardName }
               type="text"
               data-testid="name-input"
             />
@@ -68,8 +84,8 @@ class Form extends React.Component {
             Descrição Da Carta
             <textarea
               name="cardDescription"
-              onChange={ this.props.onInputChange }
-              value={ this.props.cardDescription }
+              onChange={ onInputChange }
+              value={ cardDescription }
               data-testid="description-input"
             />
           </label>
@@ -77,8 +93,8 @@ class Form extends React.Component {
             Primeiro Atributo Da Carta
             <input
               name="cardAttr1"
-              onChange={ this.props.onInputChange }
-              value={ this.props.cardAttr1 }
+              onChange={ onInputChange }
+              value={ cardAttr1 }
               type="number"
               data-testid="attr1-input"
             />
@@ -87,8 +103,8 @@ class Form extends React.Component {
             Segundo Atributo Da Carta
             <input
               name="cardAttr2"
-              onChange={ this.props.onInputChange }
-              value={ this.props.cardAttr2 }
+              onChange={ onInputChange }
+              value={ cardAttr2 }
               type="number"
               data-testid="attr2-input"
             />
@@ -97,8 +113,8 @@ class Form extends React.Component {
             Terceiro Atributo Da Carta
             <input
               name="cardAttr3"
-              onChange={ this.props.onInputChange }
-              value={ this.props.cardAttr3 }
+              onChange={ onInputChange }
+              value={ cardAttr3 }
               type="number"
               data-testid="attr3-input"
             />
@@ -107,8 +123,8 @@ class Form extends React.Component {
             Caminho Para Imagem da Carta
             <input
               name="cardImage"
-              onChange={ this.props.onInputChange }
-              value={ this.props.cardImage }
+              onChange={ onInputChange }
+              value={ cardImage }
               type="text"
               data-testid="image-input"
             />
@@ -118,8 +134,8 @@ class Form extends React.Component {
             <select
               name="cardRare"
               data-testid="rare-input"
-              onChange={ this.props.onInputChange }
-              value={ this.props.cardRare }
+              onChange={ onInputChange }
+              value={ cardRare }
             >
               <option>normal</option>
               <option>raro</option>
@@ -130,16 +146,16 @@ class Form extends React.Component {
             Carta é Super Trunfo?
             <input
               name="cardTrunfo"
-              onChange={ this.props.onInputChange }
-              checked={ this.props.cardTrunfo }
+              onChange={ onInputChange }
+              checked={ cardTrunfo }
               type="checkbox"
               data-testid="trunfo-input"
             />
           </label>
           <button
             type="submit"
-            disabled={ this.props.isSaveButtonDisabled }
-            onClick={ this.props.onSaveButtonClick }
+            disabled={ isSaveButtonDisabled }
+            onClick={ onSaveButtonClick }
             data-testid="save-button"
           >
             Salvar
@@ -149,5 +165,17 @@ class Form extends React.Component {
     );
   }
 }
+
+Form.propTypes = {
+  cardName: PropTypes.string,
+  cardDescription: PropTypes.string,
+  cardAttr1: PropTypes.string,
+  cardAttr2: PropTypes.string,
+  cardAttr3: PropTypes.string,
+  cardImage: PropTypes.string,
+  cardRare: PropTypes.string,
+  cardTrunfo: PropTypes.bool,
+  hasTrunfo: PropTypes.bool,
+}.isRequired;
 
 export default Form;

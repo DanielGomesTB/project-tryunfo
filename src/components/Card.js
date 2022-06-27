@@ -23,9 +23,9 @@ class Card extends React.Component {
           alt={ cardName }
           data-testid="image-card"
         />
-        <textarea data-testid="description-card">
+        <p data-testid="description-card">
           {cardDescription}
-        </textarea>
+        </p>
         <h4 data-testid="attr1-card">
           {cardAttr1}
         </h4>
