@@ -60,9 +60,9 @@ class App extends React.Component {
     const { cardAttr1, cardAttr2, cardAttr3 } = this.state;
     const maxValue = 90;
     const sum = 210;
-    if (Number(cardAttr1) <= maxValue && Number(cardAttr1) > 0
-    && Number(cardAttr2) <= maxValue && Number(cardAttr2) > 0
-    && Number(cardAttr3) <= maxValue && Number(cardAttr3) > 0
+    if (Number(cardAttr1) <= maxValue && Number(cardAttr1) >= 0
+    && Number(cardAttr2) <= maxValue && Number(cardAttr2) >= 0
+    && Number(cardAttr3) <= maxValue && Number(cardAttr3) >= 0
     && Number(cardAttr1) + Number(cardAttr2) + Number(cardAttr3) <= sum
     ) { return true; }
     return false;
