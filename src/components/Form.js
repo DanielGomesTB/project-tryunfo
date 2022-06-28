@@ -2,10 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 class Form extends React.Component {
-//   constructor() {
-//     super();
+  // constructor() {
+  //   super();
 
-  //     this.onInputChange = this.onInputChange.bind(this);
+  //   this.handleSubmit = this.handleSubmit.bind(this);
+  // }
 
   //     this.state = {
   //       cardName: '',
@@ -19,11 +20,6 @@ class Form extends React.Component {
   //       hasTrunfo: false,
   //       isSaveButtonDisabled: true,
   //     };
-  //   }
-
-  //   handleSubmit(event) {
-  //     event.preventDefault();
-  //   }
 
   //   onSaveButtonClick({ target }) {
   //     target.disabled = false;
@@ -69,7 +65,7 @@ class Form extends React.Component {
 
     return (
       <div>
-        <form onSubmit={ this.handleSubmit }>
+        <form>
           <label htmlFor="name-input">
             Nome Da Carta
             <input
