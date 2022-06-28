@@ -51,6 +51,14 @@ class App extends React.Component {
     }, this.setState({ hasTrunfo: this.handleTrunfo(value) }));
   }
 
+  removeCard = (name) => {
+    this.setState((prevCard) => ({
+      cards: prevCard.cards.filter((element) => element.cardName !== name) }), () => {
+      const value = this.state;
+      this.setState({ hasTrunfo: this.handleTrunfo(value) });
+    });
+  }
+
   handleTrunfo = (value) => {
     if (value.cardTrunfo === true) return true;
     return false;
@@ -132,10 +140,16 @@ class App extends React.Component {
         />
         <div>
           {cards.map((card, index) => (
-            <Card
-              key={ index }
-              { ...card }
-            />
+            <div key={ index }>
+              <Card { ...card } />
+              <button
+                data-testid="delete-button"
+                type="button"
+                onClick={ () => this.removeCard(card.cardName) }
+              >
+                Excluir
+              </button>
+            </div>
           ))}
         </div>
       </div>
