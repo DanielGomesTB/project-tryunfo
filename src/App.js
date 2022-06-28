@@ -18,8 +18,8 @@ class App extends React.Component {
       cardImage: '',
       cardRare: 'normal',
       cardTrunfo: false,
-      // hasTrunfo: false,
       isSaveButtonDisabled: true,
+      hasTrunfo: false,
       cards: [],
     };
   }
@@ -45,10 +45,15 @@ class App extends React.Component {
       cardAttr2: 0,
       cardAttr3: 0,
       cardImage: '',
-      cardTrunfo: '',
+      cardTrunfo: false,
       cardRare: 'normal',
       isSaveButtonDisabled: true,
-    });
+    }, this.setState({ hasTrunfo: this.handleTrunfo(value) }));
+  }
+
+  handleTrunfo = (value) => {
+    if (value.cardTrunfo === true) return true;
+    return false;
   }
 
   numberVerification() {
@@ -91,7 +96,7 @@ class App extends React.Component {
       cardImage,
       cardRare,
       cardTrunfo,
-      // hasTrunfo,
+      hasTrunfo,
       isSaveButtonDisabled,
       // onInputChange,
       // onSaveButtonClick,
@@ -110,9 +115,9 @@ class App extends React.Component {
           cardAttr3={ cardAttr3 }
           cardRare={ cardRare }
           cardTrunfo={ cardTrunfo }
-          // hasTrunfo={ hasTrunfo }
           isSaveButtonDisabled={ isSaveButtonDisabled }
           onSaveButtonClick={ this.onClickSubmit }
+          hasTrunfo={ hasTrunfo }
         />
         <Card
           cardName={ cardName }
